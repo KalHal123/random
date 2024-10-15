@@ -1,7 +1,7 @@
 // Display an alert when the page loads
-window.onload = function() {
-    alert("Welcome to my simple website!");
-};
+//window.onload = function() {
+//    alert("Welcome to my simple website!");
+//};
 
 // Add an event listener to change the intro text when clicked
 document.addEventListener("DOMContentLoaded", function() {
