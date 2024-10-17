@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head style="background-color:black;color:black">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Follow Rectangle</title>
+    <style>
+        body {
+            display: flex; /* Center the rectangle in the viewport */
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+            margin: 0; /* Remove default margin */
+            overflow: hidden; /* Prevent scroll bars */
+        }
+
+        .rectangle {
+            width: 300px; /* Width of the rectangle */
+            height: 150px; /* Height of the rectangle */
+            background-color: lightblue; /* Background color */
+            color: black; /* Text color */
+            border: 2px solid blue; /* Border thickness and color */
+            padding: 20px; /* Space inside the rectangle */
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Optional shadow effect */
+            border-radius: 15px; /* Rounded corners */
+            position: absolute; /* Position to allow movement */
+            transition: transform 0.3s ease; /* Smooth transition for movement */
+        }
+    </style>
+</head>
+<body>
+    <div class="rectangle" id="rectangle">
+        <p>This is some text inside a rectangle with rounded edges.</p>
+    </div>
+
+    <script>
+        const rectangle = document.getElementById('rectangle');
+
+        // Function to center the rectangle
+        function centerRectangle() {
+            const centerX = window.innerWidth / 2 - rectangle.offsetWidth / 2;
+            const centerY = window.innerHeight / 2 - rectangle.offsetHeight / 2;
+            rectangle.style.transform = `translate(${centerX}px, ${centerY}px)`;
+        }
+
+        // Center the rectangle on load
+        centerRectangle();
+
+        // Event listener for mouse movement
+        document.addEventListener('mousemove', (event) => {
+            // Get the rectangle's dimensions and position
+            const rect = rectangle.getBoundingClientRect();
+            const mouseX = event.clientX - (rect.width / 2); // Centering the rectangle
+            const mouseY = event.clientY - (rect.height / 2); // Centering the rectangle
+
+            // Move the rectangle towards the mouse cursor
+            rectangle.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+        });
+
+        // Event listener to return rectangle to the center when mouse leaves
+        document.addEventListener('mouseleave', centerRectangle);
+    </script>
+</body>
+</html>
