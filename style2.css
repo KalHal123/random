@@ -20,7 +20,7 @@ section body div ul li {
 .button {
     background-color: #4CAF50; /* Green background */
     color: white;              /* White text */
-    padding: 10px 20px;         /* Smaller padding */
+    padding: 7px 12px;         /* Smaller padding */
     font-size: 14px;            /* Smaller text size */
     border: none;               /* No border */
     border-radius: 5px;         /* Rounded corners */
